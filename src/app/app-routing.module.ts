@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { MyVacationsComponent } from './my-vacations/my-vacations.component';
-import { RequestNewComponent } from './request-new/request-new.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { VacationsComponent } from './vacations/vacations.component';
+import { VacationsAddComponent } from './vacations-add/vacations-add.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: '/my', pathMatch: 'full' },
-    { path: 'my', component: MyVacationsComponent },
-    { path: 'new', component: RequestNewComponent }
+    { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+    { path: 'dashboard', component: DashboardComponent },
+    { path: 'vacations', component: VacationsComponent },
+    { path: 'vacations/add', component: VacationsAddComponent }
     /*
     { path: 'heroes', component: HeroesComponent },
     { path: 'dashboard', component: DashboardComponent },

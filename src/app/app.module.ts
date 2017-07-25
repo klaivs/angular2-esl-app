@@ -3,15 +3,17 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
-import { MyVacationsComponent } from './my-vacations/my-vacations.component';
-import { RequestNewComponent } from './request-new/request-new.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { VacationsComponent } from './vacations/vacations.component';
+import { VacationsAddComponent } from './vacations-add/vacations-add.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MyVacationsComponent,
-    RequestNewComponent
+    DashboardComponent,
+    VacationsComponent,
+    VacationsAddComponent
   ],
   imports: [
     BrowserModule,
