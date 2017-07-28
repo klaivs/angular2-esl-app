@@ -11,8 +11,8 @@ import { UserService } from '../datastore/user/user.service';
 export class LoginFormComponent implements OnInit {
   thisUser: User;
   login: User = {
-    username:'', password:''
-    //username:'test', password:'test'
+    //username:'', password:''
+    username:'test', password:'test'
   }
   msg: string;
 
@@ -30,8 +30,12 @@ export class LoginFormComponent implements OnInit {
 
   onLogout(){
     delete this.thisUser;
+    /*
     this.login.username='';
     this.login.password='';
+    */
+    this.login.username='test';
+    this.login.password='test';
   }
 
   oncloseMsg(){

@@ -1,6 +1,5 @@
-<div class="container" *ngIf="!thisUser">
-    <cite>Try 'f1' or 'test' as username and password!</cite>
-    <form class="form-inline" #loginForm="ngForm" (ngSubmit)="onSubmit()">
+<div *ngIf="!thisUser">
+    <form class="form-inline" #loginForm="ngForm" (ngSubmit)="onSubmit()" id="loginForm">
       <div class="form-group">
         <label for="username">Username</label>
         <input type="text" class="form-control" id="username" required [(ngModel)]="login.username" name="username" #name="ngModel">
@@ -16,16 +15,15 @@
         </div-->
       </div>
       
-      <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success btn-xs" [disabled]="!loginForm.form.valid" id="btnLoginSubmit">Login</button>
+      <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Try 'f1' or 'test' as username and password!"></span>
     </form>
 </div>
 <div class="alert alert-warning" *ngIf="msg">
   <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="oncloseMsg()">&times;</a>
   <strong>Warning!</strong> {{msg}}
 </div>
-<div class="container" *ngIf="thisUser">
+<div *ngIf="thisUser">
   <span>Hello {{thisUser.username}}!</span>
-  <button class="btn btn-default" (click)="onLogout()">Logout</button>
+  <a (click)="onLogout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true" title="Logout"></span></a>
 </div>
-<hr/>
-<br/>
