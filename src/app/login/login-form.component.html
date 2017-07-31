@@ -19,10 +19,6 @@
       <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Try 'f1' or 'test' as username and password!"></span>
     </form>
 </div>
-<div class="alert alert-warning" *ngIf="msg">
-  <a href="#" class="close" data-dismiss="alert" aria-label="close" (click)="oncloseMsg()">&times;</a>
-  <strong>Warning!</strong> {{msg}}
-</div>
 <div *ngIf="thisUser">
   <span>Hello {{thisUser.username}}!</span>
   <a (click)="onLogout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true" title="Logout"></span></a>

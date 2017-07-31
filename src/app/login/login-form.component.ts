@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { User } from '../datastore/user/user';
 import { UserService } from '../datastore/user/user.service';
+import { MsgService } from '../msg/msg.service';
 
 @Component({
   selector: 'login-form',
@@ -14,10 +15,10 @@ export class LoginFormComponent implements OnInit {
     //username:'', password:''
     username:'test', password:'test'
   }
-  msg: string;
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private msgService: MsgService,
   ) { }
 
   onSubmit() {
@@ -25,7 +26,7 @@ export class LoginFormComponent implements OnInit {
       .then(ret => {
         if(ret) this.thisUser = ret;
       })
-      .catch(err => this.msg = err);
+      .catch(err => this.msgService.addMessage(err));
   }
 
   onLogout(){
@@ -39,7 +40,7 @@ export class LoginFormComponent implements OnInit {
   }
 
   oncloseMsg(){
-    delete this.msg;
+    this.msgService.clearMessage();
   }
   ngOnInit() {
   }

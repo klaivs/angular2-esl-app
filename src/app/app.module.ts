@@ -15,6 +15,8 @@ import { VacationsAddComponent } from './vacations-add/vacations-add.component';
 import { LoginFormComponent } from './login/login-form.component';
 import { UserDataStore } from './datastore/user/user.datastore';
 import { UserService } from './datastore/user/user.service';
+import { MsgService } from './msg/msg.service';
+import { MsgComponent } from './msg/msg.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { UserService } from './datastore/user/user.service';
     VacationsComponent,
     VacationsAddComponent,
     LoginFormComponent,
+    MsgComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +35,7 @@ import { UserService } from './datastore/user/user.service';
     NgbModule.forRoot(),  
     AppRoutingModule
   ],
-  providers: [UserService],
+  providers: [UserService, MsgService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
