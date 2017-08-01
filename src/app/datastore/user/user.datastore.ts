@@ -4,8 +4,8 @@ import { User } from './user';
 export class UserDataStore implements InMemoryDbService {
   createDb() {
     const users: User[] = [
-      { username: 'test', password: 'test' },
-      { username: 'f1', password: 'f1' }
+      {username: "test", password:"test", firstname:"", lastname:"" },
+      {username: "f1", password:"f1", firstname:"", lastname:"" }
     ];
     return {users};
   }

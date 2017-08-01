@@ -11,6 +11,7 @@ import { UserDataStore } from './user.datastore';
 export class UserService {
   private apiUrl = 'api/users';  // URL to web api
   private headers = new Headers({'Content-Type': 'application/json'});
+  private loggedInUser: User;
   constructor(
         private http: Http
   ){}
@@ -23,6 +24,7 @@ export class UserService {
         if(typeof usr !== 'undefined'){
           if(usr.password==password){
             isok = true;
+            this.loggedInUser = usr;
           }else{
             throw new Error('Passwords do not match!');
           }
@@ -32,6 +34,10 @@ export class UserService {
         return isok ? usr : null;
       })
       .catch(this.handleError);
+  }
+
+  logout(){
+    delete this.loggedInUser;
   }
 
   getUser(username: string): Promise<User>{
@@ -45,9 +51,13 @@ export class UserService {
       .catch(this.handleError);
   }
   
+  getLoggedInUser(){
+    return this.loggedInUser;
+  }
+
   private handleError(error: any): Promise<any> {
-        //console.error('An error occurred', error); // for demo purposes only
-        return Promise.reject(error.message || error);
+    //console.error('An error occurred', error); // for demo purposes only
+    return Promise.reject(error.message || error);
   }
 
 }

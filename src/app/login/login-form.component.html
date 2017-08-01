@@ -1,15 +1,15 @@
-<div *ngIf="!thisUser">
+<div *ngIf="!userService.getLoggedInUser()">
     <form class="form-inline" #loginForm="ngForm" (ngSubmit)="onSubmit()" id="loginForm">
       <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" id="username" required [(ngModel)]="login.username" name="username" #name="ngModel">
+        <input type="text" class="form-control" id="username" required [(ngModel)]="username" name="username" #name="ngModel">
         <!--div [hidden]="name.valid || name.pristine" class="alert alert-danger">
           Username is required!
         </div-->
       </div>
       <div class="form-group">    
         <label for="password">Password</label>
-        <input type="password" class="form-control" id="password" required [(ngModel)]="login.password" name="password" #pname="ngModel">
+        <input type="password" class="form-control" id="password" required [(ngModel)]="password" name="password" #pname="ngModel">
         <!--div [hidden]="pname.valid || pname.pristine" class="alert alert-danger">
           Password is required!
         </div-->
@@ -19,7 +19,8 @@
       <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Try 'f1' or 'test' as username and password!"></span>
     </form>
 </div>
-<div *ngIf="thisUser">
-  <span>Hello {{thisUser.username}}!</span>
-  <a (click)="onLogout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true" title="Logout"></span></a>
+<div *ngIf="userService.loggedInUser">
+  <span>Hello {{userService.getLoggedInUser().username}}!</span>
+  <a routerLink="/user-settings"><span class="glyphicon glyphicon-cog" aria-hidden="true" title="Settings"></span></a>
+  <a (click)="userService.logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true" title="Logout"></span></a>
 </div>

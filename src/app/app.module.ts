@@ -17,6 +17,7 @@ import { UserDataStore } from './datastore/user/user.datastore';
 import { UserService } from './datastore/user/user.service';
 import { MsgService } from './msg/msg.service';
 import { MsgComponent } from './msg/msg.component';
+import { UserSettingsComponent } from './user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MsgComponent } from './msg/msg.component';
     VacationsComponent,
     VacationsAddComponent,
     LoginFormComponent,
-    MsgComponent
+    MsgComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

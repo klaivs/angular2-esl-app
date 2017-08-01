@@ -10,11 +10,8 @@ import { MsgService } from '../msg/msg.service';
   styleUrls: ['./login-form.component.css']
 })
 export class LoginFormComponent implements OnInit {
-  thisUser: User;
-  login: User = {
-    //username:'', password:''
-    username:'test', password:'test'
-  }
+  username: string = "test";
+  password: string = "test";
 
   constructor(
     private userService: UserService,
@@ -22,26 +19,16 @@ export class LoginFormComponent implements OnInit {
   ) { }
 
   onSubmit() {
-    this.userService.login(this.login.username, this.login.password)
+    this.userService.login(this.username, this.password)
       .then(ret => {
-        if(ret) this.thisUser = ret;
+        if(ret){
+          this.username="";
+          this.password="";
+        }
       })
-      .catch(err => this.msgService.addMessage(err));
+      .catch(err => this.msgService.addMessage(err, 3, "Warning"));
   }
 
-  onLogout(){
-    delete this.thisUser;
-    /*
-    this.login.username='';
-    this.login.password='';
-    */
-    this.login.username='test';
-    this.login.password='test';
-  }
-
-  oncloseMsg(){
-    this.msgService.clearMessage();
-  }
   ngOnInit() {
   }
 }

@@ -1,0 +1,28 @@
+<div *ngIf="userService.getLoggedInUser()">
+  <h3>User-settings</h3>
+  <form class="form-block" #userSettingsForm="ngForm" id="userSettingsForm">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" required name="username" [(ngModel)]="userService.getLoggedInUser().username">
+        </div>
+        <div class="form-group">    
+          <label for="password">Password</label>
+          <input type="text" class="form-control" id="password" required name="password" name="username" [(ngModel)]="userService.getLoggedInUser().password">
+        </div>  
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="firstname">First name</label>
+          <input type="text" class="form-control" id="firstname" required name="firstname" name="username" [(ngModel)]="userService.getLoggedInUser().firstname">
+        </div>
+        <div class="form-group">
+          <label for="lastnamename">Last name</label>
+          <input type="text" class="form-control" id="lastname" required  name="lastname" name="username" [(ngModel)]="userService.getLoggedInUser().lastname">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success btn-xs" [disabled]="!userSettingsForm.form.valid" id="btnSave" (click)="saveSettings()">Save</button>
+  </form>
+</div>
