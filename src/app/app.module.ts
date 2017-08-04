@@ -3,11 +3,10 @@ import { NgModule } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpModule }    from '@angular/http';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-import { FormsModule }   from '@angular/forms';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VacationsComponent } from './vacations/vacations.component';

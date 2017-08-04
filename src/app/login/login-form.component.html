@@ -20,7 +20,7 @@
     </form>
 </div>
 <div *ngIf="userService.loggedInUser">
-  <span>Hello {{userService.getLoggedInUser().username}}!</span>
+  <span>Hello {{userService.getLoggedInUser().firstname}} {{userService.getLoggedInUser().lastname}}!</span>
   <a routerLink="/user-settings"><span class="glyphicon glyphicon-cog" aria-hidden="true" title="Settings"></span></a>
   <a (click)="userService.logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true" title="Logout"></span></a>
 </div>
