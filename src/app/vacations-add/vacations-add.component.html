@@ -1,3 +1,24 @@
-<p>
-  vacations-add works!
-</p>
+<h4>
+  Add new vacation request
+</h4>
+<hr>
+<br>
+<div id="container">
+  <div id="left">
+    <p>Start date</p>
+    <br>
+    <p>End date</p>
+    <br>
+    <p>Duration: <span id="DurationDays">10</span></p>
+  </div>
+  <div id="right">
+    <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
+    <br>
+    <br>
+    <ng2-datepicker [options]="options" [(ngModel)]="date"></ng2-datepicker>
+  </div>
+</div>
+<br>
+<br>
+<br>
+<button type="button" class="btn">Add</button>
