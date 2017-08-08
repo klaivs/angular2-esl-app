@@ -17,6 +17,7 @@ import { UserService } from './datastore/user/user.service';
 import { MsgService } from './msg/msg.service';
 import { MsgComponent } from './msg/msg.component';
 import { UserSettingsComponent } from './user-settings/user-settings.component';
+import { DatePickerModule } from 'ng2-datepicker';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UserSettingsComponent } from './user-settings/user-settings.component';
     HttpModule,
     InMemoryWebApiModule.forRoot(UserDataStore),
     NgbModule.forRoot(),  
-    AppRoutingModule
+    AppRoutingModule,
+    DatePickerModule
   ],
   providers: [UserService, MsgService],
   bootstrap: [AppComponent]

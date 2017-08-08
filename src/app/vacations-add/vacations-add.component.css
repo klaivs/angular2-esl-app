@@ -1,0 +1,8 @@
+#left {
+    width: 100px;
+    float: left;
+}
+#right {
+    margin-left: 100px;
+      /* Change this to whatever the width of your left column is*/
+}
