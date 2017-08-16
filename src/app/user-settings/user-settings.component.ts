@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import 'rxjs/add/operator/toPromise';
 //import { LoginFormComponent } from '../login/login-form.component';
 import { User } from '../datastore/user/user';
 import { UserService } from '../datastore/user/user.service';
@@ -16,11 +17,10 @@ export class UserSettingsComponent implements OnInit {
     private msgService: MsgService
   ) { }
 
-  saveSettings(){
-    this.userService.update(this.userService.getLoggedInUser())
-      .then(
-        () => this.msgService.addMessage("User settings saved!",1,"")
-      );
+  async saveSettings(){
+    let usr = this.userService.getLoggedInUser();
+    await this.userService.update(usr);
+    this.msgService.addMessage("User settings saved!",1,"");
   }
 
   ngOnInit() {

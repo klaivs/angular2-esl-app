@@ -4,7 +4,7 @@ import { Headers, Http } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
 import { User } from './user';
-import { UserDataStore } from './user.datastore';
+//import { UserDataStore } from './user.datastore';
 
 
 @Injectable()

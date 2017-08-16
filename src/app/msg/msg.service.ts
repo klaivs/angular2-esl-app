@@ -1,11 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Subject } from 'rxjs/Subject';
+import { APP_CONFIG, IAppConfig } from '../app.config';
 
 @Injectable()
 export class MsgService {
   private messages = new Subject<any>();
-
+  config: IAppConfig;
+    constructor(@Inject(APP_CONFIG) _config: IAppConfig) {
+      this.config = _config;
+    }   
     addMessage(_message: string, _type: number, _title:string) {
       var typ:string;
       switch(_type){

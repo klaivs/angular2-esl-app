@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { DatePickerModule } from 'ng2-datepicker';
 
 import { VacationsAddComponent } from './vacations-add.component';
 
@@ -8,6 +9,9 @@ describe('VacationsAddComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[
+        DatePickerModule
+      ],
       declarations: [ VacationsAddComponent ]
     })
     .compileComponents();

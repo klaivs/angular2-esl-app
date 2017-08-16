@@ -7,6 +7,7 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { APP_CONFIG, AppConfig } from './app.config';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { VacationsComponent } from './vacations/vacations.component';
@@ -38,7 +39,11 @@ import { DatePickerModule } from 'ng2-datepicker';
     AppRoutingModule,
     DatePickerModule
   ],
-  providers: [UserService, MsgService],
+  providers: [
+    UserService,
+    MsgService,
+    { provide: APP_CONFIG, useValue: AppConfig}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

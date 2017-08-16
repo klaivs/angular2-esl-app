@@ -22,11 +22,14 @@ export class LoginFormComponent implements OnInit {
     this.userService.login(this.username, this.password)
       .then(ret => {
         if(ret){
+          console.log("user logged in");
           this.username="";
           this.password="";
         }
       })
-      .catch(err => this.msgService.addMessage(err, 3, "Warning"));
+      .catch(err => {
+        this.msgService.addMessage(err, 3, "Warning");
+      });
   }
 
   ngOnInit() {

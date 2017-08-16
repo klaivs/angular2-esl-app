@@ -19,8 +19,8 @@
       <span class="glyphicon glyphicon-info-sign" aria-hidden="true" title="Try 'f1' or 'test' as username and password!"></span>
     </form>
 </div>
-<div *ngIf="userService.loggedInUser">
-  <span>Hello {{userService.getLoggedInUser().firstname}} {{userService.getLoggedInUser().lastname}}!</span>
+<div *ngIf="userService.getLoggedInUser()">
+  <span id="user_actions">Hello {{userService.getLoggedInUser().firstname}} {{userService.getLoggedInUser().lastname}}!</span>
   <a routerLink="/user-settings"><span class="glyphicon glyphicon-cog" aria-hidden="true" title="Settings"></span></a>
   <a (click)="userService.logout()"><span class="glyphicon glyphicon-log-out" aria-hidden="true" title="Logout"></span></a>
 </div>

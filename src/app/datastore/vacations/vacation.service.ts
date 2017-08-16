@@ -27,7 +27,7 @@ export class VacationService {
       .catch(this.handleError);
   }
 
-  addVacation(startDate: Date, endDate: Date){
+  addVacation(startDate: Date, endDate: Date, user_id: number){
 
   }
 
