@@ -2,24 +2,42 @@
   <h3>User-settings</h3>
   <form class="form-block" #userSettingsForm="ngForm" id="userSettingsForm">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-3">
         <div class="form-group">
           <label for="username">Username</label>
-          <input type="text" class="form-control" id="username" required name="username" [(ngModel)]="userService.getLoggedInUser().username">
+          <input type="text" class="form-control input-sm" id="username" required name="username" [(ngModel)]="userService.getLoggedInUser().username">
         </div>
         <div class="form-group">    
           <label for="password">Password</label>
-          <input type="text" class="form-control" id="password" required name="password" [(ngModel)]="userService.getLoggedInUser().password">
+          <input type="text" class="form-control input-sm" id="password" required name="password" [(ngModel)]="userService.getLoggedInUser().password">
         </div>  
       </div>
-      <div class="col-md-6">
+      <div class="col-md-3">
         <div class="form-group">
           <label for="firstname">First name</label>
-          <input type="text" class="form-control" id="firstname" required name="firstname" [(ngModel)]="userService.getLoggedInUser().firstname">
+          <input type="text" class="form-control input-sm" id="firstname" required name="firstname" [(ngModel)]="userService.getLoggedInUser().firstname">
         </div>
         <div class="form-group">
           <label for="lastnamename">Last name</label>
-          <input type="text" class="form-control" id="lastname" required  name="lastname" [(ngModel)]="userService.getLoggedInUser().lastname">
+          <input type="text" class="form-control input-sm" id="lastname" required  name="lastname" [(ngModel)]="userService.getLoggedInUser().lastname">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="vac_approver">Vacation Approver:</label>
+          <select id="vac_approver" class="form-control input-sm" required name="vac_approver" [(ngModel)]="userService.getLoggedInUser().approver_id">
+            <option value=""></option>
+            <option *ngFor="let usr of all_user_arr" [value]="usr.id">{{usr.firstname}} {{usr.lastname}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+            <label for="btnAddVacDays">Available vacation days:</label> {{userService.getLoggedInUser().available_vac_days}}
+            <span class="spnAddVacDays">Add              
+              <input type="text" class="form-control input-sm" id="addVacDays" name="addVacDays" #adddays maxlength="2"> vacation days
+              <button class="btn btn-success btn-xs" id="btnAddVacDays" (click)="addVacDays(adddays.value)">Add</button>
+            </span> 
         </div>
       </div>
     </div>

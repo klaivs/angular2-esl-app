@@ -1,0 +1,13 @@
+.spnAddVacDays{
+    margin-left:50px;
+    width: 150px;
+}
+#vac_approver{
+    width: 200px;
+}
+
+#addVacDays{
+    display: inline;
+    width: 40px;
+    text-align: center;
+}

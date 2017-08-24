@@ -56,13 +56,24 @@ export class UserService {
   }
 
   update(user: User): Promise<User>{
-        const url = `${this.apiUrl}/${user.id}`;
-        return this.http
-            .put(url, JSON.stringify(user), {headers: this.headers})
-            .toPromise()
-            .then(() => user)
-            .catch(this.handleError)
+    const url = `${this.apiUrl}/${user.id}`;
+    return this.http
+      .put(url, JSON.stringify(user), {headers: this.headers})
+      .toPromise()
+      .then(() => user)
+      .catch(this.handleError)
   } 
+
+  getAllUsers():Promise<User[]>{
+    const url = `${this.apiUrl}`;
+    return this.http.get(url)
+      .toPromise()
+      .then(response => {
+        var users = response.json().data as User;
+        return users;
+      })
+      .catch(this.handleError);
+  }
 
   private handleError(error: any): Promise<any> {
     //console.error('An error occurred', error); // for demo purposes only

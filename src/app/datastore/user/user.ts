@@ -4,7 +4,8 @@ export class User {
   password: string;
   firstname: string;
   lastname: string;
-
+  approver_id: number;
+  available_vac_days: number;
   constructor(){
     
   }
